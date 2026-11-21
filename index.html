@@ -69,6 +69,40 @@ section{padding:96px 0}
 .stat-num{font-size:40px;font-weight:800;color:var(--text);line-height:1}
 .stat-label{font-size:14px;color:var(--text-muted);margin-top:4px}
 
+/* ===== WAITLIST SECTION ===== */
+.waitlist-section{background:linear-gradient(135deg,#4F46E5 0%,#7C3AED 100%);padding:80px 0}
+.waitlist-inner{max-width:620px;margin:0 auto;text-align:center}
+.waitlist-section .wl-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);color:white;font-size:12px;font-weight:600;padding:5px 14px;border-radius:999px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.25)}
+.waitlist-section .wl-dot{width:6px;height:6px;background:#34D399;border-radius:50%;animation:wl-pulse 2s infinite}
+@keyframes wl-pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.waitlist-section h2{font-size:clamp(28px,4vw,40px);font-weight:800;color:white;letter-spacing:-1.2px;line-height:1.15;margin-bottom:12px}
+.waitlist-section p{font-size:16px;color:rgba(255,255,255,0.8);line-height:1.65;margin-bottom:32px}
+.wl-form{display:flex;flex-direction:column;gap:12px;max-width:480px;margin:0 auto}
+.wl-row{display:flex;gap:10px}
+@media(max-width:520px){.wl-row{flex-direction:column}}
+.wl-input{flex:1;padding:13px 16px;font-size:14px;font-family:'Inter',sans-serif;border:none;border-radius:9px;background:rgba(255,255,255,0.15);color:white;outline:none;transition:background 0.2s;border:1.5px solid rgba(255,255,255,0.2)}
+.wl-input::placeholder{color:rgba(255,255,255,0.5)}
+.wl-input:focus{background:rgba(255,255,255,0.22);border-color:rgba(255,255,255,0.5)}
+.wl-select{flex:1;padding:13px 16px;font-size:14px;font-family:'Inter',sans-serif;border:none;border-radius:9px;background:rgba(255,255,255,0.15);color:white;outline:none;border:1.5px solid rgba(255,255,255,0.2);cursor:pointer;appearance:none}
+.wl-select option{background:#4F46E5;color:white}
+.wl-btn{width:100%;padding:15px;background:white;color:#4F46E5;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:9px;cursor:pointer;transition:opacity 0.15s,transform 0.1s}
+.wl-btn:hover{opacity:0.93}
+.wl-btn:active{transform:scale(0.99)}
+.wl-note{font-size:12px;color:rgba(255,255,255,0.6);margin-top:4px}
+.wl-avatars{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:28px}
+.wl-avatars-row{display:flex}
+.wl-avatars-row span{width:30px;height:30px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:white;margin-left:-8px}
+.wl-avatars-row span:first-child{margin-left:0}
+.wl-count-text{font-size:13px;color:rgba(255,255,255,0.8);font-weight:500}
+.wl-count-text strong{color:white}
+/* Success */
+.wl-success{display:none;background:rgba(255,255,255,0.12);border:1.5px solid rgba(255,255,255,0.25);border-radius:16px;padding:32px 24px;text-align:center;max-width:480px;margin:0 auto}
+.wl-success-check{width:56px;height:56px;background:rgba(52,211,153,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.wl-success h3{font-size:22px;font-weight:800;color:white;margin-bottom:8px}
+.wl-success p{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6}
+.wl-position{display:inline-block;background:rgba(255,255,255,0.15);color:white;font-size:13px;font-weight:700;border-radius:999px;padding:6px 18px;margin-top:14px;border:1px solid rgba(255,255,255,0.3)}
+/* ===== END WAITLIST ===== */
+
 /* HOW IT WORKS */
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px}
 .step-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:32px;position:relative}
@@ -192,8 +226,8 @@ footer{padding:64px 0 32px;border-top:1px solid var(--border)}
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-cta" id="navCta">
-        <a href="https://mesply.vercel.app/login" class="btn btn-ghost">Login</a>
-        <a href="https://mesply.vercel.app/register" class="btn btn-primary">Sign Up Free</a>
+        <a href="https://app.mesply.app/login" class="btn btn-ghost">Login</a>
+        <a href="#waitlist" class="btn btn-primary">Join Waitlist</a>
       </div>
       <button class="hamburger" id="hamburger" onclick="toggleMenu()">
         <span></span><span></span><span></span>
@@ -207,9 +241,9 @@ footer{padding:64px 0 32px;border-top:1px solid var(--border)}
   <div class="container">
     <div class="hero-badge"><span>⚡</span> Built for African businesses</div>
     <h1>Turn every customer<br /><em>message into a sale</em></h1>
-<p>Mesply automatically replies to customers, takes orders, and collects MoMo payments — 24/7 while you focus on growing your business.</p>
+    <p>Mesply automatically replies to customers, takes orders, and collects MoMo payments — 24/7 while you focus on growing your business.</p>
     <div class="hero-actions">
-      <a href="https://mesply.vercel.app/register" class="btn btn-primary btn-lg">Start for free →</a>
+      <a href="#waitlist" class="btn btn-primary btn-lg">Join the Waitlist →</a>
       <a href="#how-it-works" class="btn btn-ghost btn-lg">See how it works</a>
     </div>
     <p class="hero-note">No credit card required · Free plan available · Setup in 3 minutes</p>
@@ -259,12 +293,76 @@ footer{padding:64px 0 32px;border-top:1px solid var(--border)}
   </div>
 </div>
 
+<!-- ===== WAITLIST SECTION ===== -->
+<section class="waitlist-section" id="waitlist">
+  <div class="container">
+    <div class="waitlist-inner">
+      <div class="wl-tag">
+        <span class="wl-dot"></span>
+        Now accepting early access
+      </div>
+      <h2>Be the first to get access</h2>
+      <p>Join hundreds of Ghanaian business owners waiting to automate their WhatsApp. We'll notify you the moment your spot opens.</p>
+
+      <!-- Social proof -->
+      <div class="wl-avatars">
+        <div class="wl-avatars-row">
+          <span style="background:#7C3AED">AO</span>
+          <span style="background:#059669">KA</span>
+          <span style="background:#DC2626">EA</span>
+          <span style="background:#D97706">YB</span>
+        </div>
+        <span class="wl-count-text"><strong id="wl-count">143</strong> businesses already joined</span>
+      </div>
+
+      <!-- Form -->
+      <div id="wl-form-wrap">
+        <form class="wl-form" onsubmit="handleWaitlist(event)">
+          <div class="wl-row">
+            <input type="text" class="wl-input" id="wl-name" placeholder="Your name" required />
+            <input type="text" class="wl-input" id="wl-business" placeholder="Business name" />
+          </div>
+          <input type="email" class="wl-input" id="wl-email" placeholder="Email address" required />
+          <select class="wl-select" id="wl-industry">
+            <option value="">What type of business?</option>
+            <option>Retail / Online shop</option>
+            <option>Food & Catering</option>
+            <option>Fashion & Beauty</option>
+            <option>Health & Pharmacy</option>
+            <option>Travel & Transport</option>
+            <option>Real Estate</option>
+            <option>Education</option>
+            <option>Other</option>
+          </select>
+          <button type="submit" class="wl-btn" id="wl-submit-btn">
+            Join the Waitlist — It's Free ✨
+          </button>
+        </form>
+        <p class="wl-note">No spam. No credit card. We'll only email you when your spot is ready.</p>
+      </div>
+
+      <!-- Success state -->
+      <div class="wl-success" id="wl-success">
+        <div class="wl-success-check">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h3>You're on the list! 🎉</h3>
+        <p>We'll send your early access invite to <strong id="wl-confirm-email" style="color:white"></strong> as soon as your spot opens.</p>
+        <div class="wl-position">You are #<span id="wl-position-num">144</span> on the waitlist</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===== END WAITLIST ===== -->
+
 <!-- HOW IT WORKS -->
 <section id="how-it-works">
   <div class="container">
     <div class="section-label">How it works</div>
     <h2 class="section-title">Set up in 3 minutes, sell forever</h2>
-<p class="section-subtitle">No technical skills needed. Connect WhatsApp and start converting messages into money.</p>
+    <p class="section-subtitle">No technical skills needed. Connect WhatsApp and start converting messages into money.</p>
     <div class="steps">
       <div class="step-card">
         <div class="step-num">1</div>
@@ -293,17 +391,17 @@ footer{padding:64px 0 32px;border-top:1px solid var(--border)}
   <div class="container">
     <div class="section-label">Features</div>
     <h2 class="section-title">Everything you need to sell more</h2>
-<p class="section-subtitle">Mesply turns every WhatsApp conversation into a sales opportunity — automatically.</p>
+    <p class="section-subtitle">Mesply turns every WhatsApp conversation into a sales opportunity — automatically.</p>
     <div class="features-grid">
       <div class="feature-card">
          <div class="feature-icon">⚡</div>
-<h3>Never lose a customer again</h3>
-<p>Customers get a reply in under 1 second — even at 3am. No more lost sales from slow responses.</p>
+        <h3>Never lose a customer again</h3>
+        <p>Customers get a reply in under 1 second — even at 3am. No more lost sales from slow responses.</p>
       </div>
       <div class="feature-card">
-      <div class="feature-icon">🛒</div>
-<h3>Take orders while you sleep</h3>
-<p>Mesply collects orders, delivery addresses, and MoMo payment proof automatically — no effort needed.</p>
+        <div class="feature-icon">🛒</div>
+        <h3>Take orders while you sleep</h3>
+        <p>Mesply collects orders, delivery addresses, and MoMo payment proof automatically — no effort needed.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">📦</div>
@@ -326,9 +424,9 @@ footer{padding:64px 0 32px;border-top:1px solid var(--border)}
         <p>Get notified by email every time a new order comes in with payment proof attached.</p>
       </div>
       <div class="feature-card">
-      <div class="feature-icon">💡</div>
-<h3>Know what sells best</h3>
-<p>Get weekly AI insights about your best products, busiest hours, and how to close more sales.</p>
+        <div class="feature-icon">💡</div>
+        <h3>Know what sells best</h3>
+        <p>Get weekly AI insights about your best products, busiest hours, and how to close more sales.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🌍</div>
@@ -362,7 +460,7 @@ footer{padding:64px 0 32px;border-top:1px solid var(--border)}
           <li>Conversation inbox</li>
           <li>Order management</li>
         </ul>
-        <a href="https://mesply.vercel.app/register" class="btn btn-ghost" style="width:100%;justify-content:center">Get started free</a>
+        <a href="#waitlist" class="btn btn-ghost" style="width:100%;justify-content:center">Join waitlist</a>
       </div>
       <div class="pricing-card pricing-card--featured">
         <div class="pricing-badge">⚡ Most popular</div>
@@ -379,7 +477,7 @@ footer{padding:64px 0 32px;border-top:1px solid var(--border)}
           <li>AI business insights</li>
           <li>Priority support</li>
         </ul>
-        <a href="https://mesply.vercel.app/register" class="btn btn-white" style="width:100%;justify-content:center">Start 7-day free trial</a>
+        <a href="#waitlist" class="btn btn-white" style="width:100%;justify-content:center">Join waitlist</a>
       </div>
       <div class="pricing-card">
         <div class="pricing-plan">Business</div>
@@ -392,7 +490,7 @@ footer{padding:64px 0 32px;border-top:1px solid var(--border)}
           <li>Advanced analytics</li>
           <li>Dedicated support</li>
         </ul>
-        <a href="https://mesply.vercel.app/register" class="btn btn-ghost" style="width:100%;justify-content:center">Get started</a>
+        <a href="#waitlist" class="btn btn-ghost" style="width:100%;justify-content:center">Join waitlist</a>
       </div>
     </div>
     <p style="margin-top:32px;font-size:14px;color:var(--text-muted)">
@@ -503,7 +601,7 @@ footer{padding:64px 0 32px;border-top:1px solid var(--border)}
           <div class="contact-item-icon">📧</div>
           <div>
             <div class="contact-item-title">Email us</div>
-            <div class="contact-item-text">hello@mesply.com</div>
+            <div class="contact-item-text">hello@mesply.app</div>
           </div>
         </div>
         <div class="contact-item">
@@ -554,10 +652,10 @@ footer{padding:64px 0 32px;border-top:1px solid var(--border)}
 <!-- CTA -->
 <section class="cta-section">
   <div class="container">
-  <h2>Ready to turn messages into money?</h2>
-<p>Join hundreds of Ghanaian businesses using Mesply to sell more — automatically, 24/7.</p>
-    <a href="https://mesply.vercel.app/register" class="btn btn-white btn-lg">
-      Get started free — no credit card needed
+    <h2>Ready to turn messages into money?</h2>
+    <p>Join hundreds of Ghanaian businesses using Mesply to sell more — automatically, 24/7.</p>
+    <a href="#waitlist" class="btn btn-white btn-lg">
+      Join the waitlist — it's free
     </a>
   </div>
 </section>
@@ -588,16 +686,17 @@ footer{padding:64px 0 32px;border-top:1px solid var(--border)}
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="https://app.mesply.app/privacy">Privacy Policy</a></li>
-<li><a href="https://app.mesply.app/terms">Terms of Service</a></li>
-<li><a href="https://app.mesply.app/refund">Refund Policy</a></li>
-<li><a href="https://app.mesply.app/cookies">Cookie Policy</a></li>
-<li><a href="mailto:hello@mesply.app">Contact</a></li>        </ul>
+          <li><a href="https://app.mesply.app/terms">Terms of Service</a></li>
+          <li><a href="https://app.mesply.app/refund">Refund Policy</a></li>
+          <li><a href="https://app.mesply.app/cookies">Cookie Policy</a></li>
+          <li><a href="mailto:hello@mesply.app">Contact</a></li>
+        </ul>
       </div>
       <div class="footer-col">
         <h4>Get Started</h4>
         <ul>
-          <li><a href="https://mesply.vercel.app/login">Login</a></li>
-          <li><a href="https://mesply.vercel.app/register">Sign Up Free</a></li>
+          <li><a href="https://app.mesply.app/login">Login</a></li>
+          <li><a href="#waitlist">Join Waitlist</a></li>
         </ul>
       </div>
     </div>
@@ -622,6 +721,29 @@ function handleContact(e) {
   e.target.reset();
 }
 
+// Waitlist handler
+let wlCount = 143;
+try { const s = localStorage.getItem('mesply_wl_count'); if (s) wlCount = parseInt(s); } catch(e) {}
+document.getElementById('wl-count').textContent = wlCount;
+
+function handleWaitlist(e) {
+  e.preventDefault();
+  const email = document.getElementById('wl-email').value;
+  const btn = document.getElementById('wl-submit-btn');
+  btn.textContent = 'Joining…';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    wlCount++;
+    try { localStorage.setItem('mesply_wl_count', wlCount); } catch(e) {}
+    document.getElementById('wl-form-wrap').style.display = 'none';
+    const success = document.getElementById('wl-success');
+    success.style.display = 'block';
+    document.getElementById('wl-confirm-email').textContent = email;
+    document.getElementById('wl-position-num').textContent = wlCount;
+  }, 800);
+}
+
 // Smooth scroll for nav links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
@@ -629,7 +751,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // Close mobile menu if open
       document.getElementById('navLinks').classList.remove('open');
       document.getElementById('navCta').classList.remove('open');
     }
